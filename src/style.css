@@ -19,6 +19,16 @@ ul {
 	list-style-type: none;
 }
 
+header {
+	background-color: brown;
+	color: white;
+}
+
+h1 {
+	text-transform: uppercase;
+	text-align: center;
+}
+
 .container {
 	margin: calc(var(--base-margin) * 2);
 }
@@ -77,6 +87,17 @@ li button {
 
 .btn-disabled {
 	background-color: #aaa;
+}
+
+.task {
+	pointer-events: none;
+	cursor: pointer;
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-moz-user-select: none; /* Old versions of Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently
+                        supported by Chrome, Edge, Opera and Firefox */
 }
 
 .task-finished {

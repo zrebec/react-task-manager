@@ -3,13 +3,21 @@ import React from 'react';
 const Task = (props) => {
 	const { id, name, isFinished } = props;
 
+	const handleClick = (e) => {
+		switch (e.detail) {
+			case 2:
+				handleActionButton({ type: 'done', id: e.target.dataset.id });
+				break;
+		}
+	};
+
 	const handleActionButton = (buttonValues) => {
 		props.onActionButtonClick(buttonValues);
 	};
 
 	return (
-		<li id={`task-${id}`} data-id={id}>
-			{isFinished ? <span className="task-finished">{name}</span> : <span>{name}</span>}
+		<li id={`task-${id}`} data-id={id} onClick={handleClick}>
+			{isFinished ? <span className="task task-finished">{name}</span> : <span className="task">{name}</span>}
 			<button
 				data-id={id}
 				type="button"
