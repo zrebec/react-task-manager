@@ -1,0 +1,85 @@
+:root {
+	--base-margin: 0.5rem;
+	--base-padding: 0.5rem;
+	--base-font-size: 1rem;
+}
+
+*,
+*::after,
+*::before {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	box-sizing: border-box;
+}
+
+ul {
+	list-style-type: none;
+}
+
+.container {
+	margin: calc(var(--base-margin) * 2);
+}
+
+input {
+	font-size: calc(var(--base-font-size) * 2);
+	border: 1px solid black;
+	padding: var(--base-padding);
+	width: calc(100% - var(--base-margin) * 4);
+	margin: var(--base-margin);
+}
+
+li {
+	display: grid;
+	grid-template-columns: 8fr repeat(3, 1fr);
+	gap: var(--base-margin);
+	align-items: center;
+
+	margin: var(--base-margin);
+	border-bottom: 1px solid black;
+}
+
+li span,
+li button {
+	padding: var(--base-padding);
+}
+
+li span {
+	margin-right: var(--base-margin);
+}
+
+li button {
+	margin: var(--base-padding) 0;
+	width: 5rem;
+	border: none;
+	border-radius: 0.3rem;
+	cursor: pointer;
+}
+
+.btn-done {
+	background-color: #0ca;
+}
+
+.btn-redo {
+	background-color: yellow;
+}
+
+.btn-edit {
+	background-color: darkorange;
+}
+
+.btn-delete {
+	background-color: darkred;
+	color: white;
+}
+
+.btn-disabled {
+	background-color: #aaa;
+}
+
+.task-finished {
+	color: #ccc;
+	text-decoration: line-through;
+}
