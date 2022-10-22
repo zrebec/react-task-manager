@@ -23,6 +23,9 @@
 
 [] Change texts to svg icons
 [] Ask about problems viac console.log in tasks.map() when newTask is typing
+[] Localstorage (react localstorage exists alterate coding?)
+[] Header as separate component
+[] Textform as separate compotent
 [] Nice to have: ModalWindow with delete task
 [] Nice to have: Optimize the edit or done (creating new array copy)
 [] Nice to have: Sliding to done or delete
