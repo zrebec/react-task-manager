@@ -1,106 +1,115 @@
 :root {
-	--base-margin: 0.5rem;
-	--base-padding: 0.5rem;
-	--base-font-size: 1rem;
+  --base-margin: 0.5rem;
+  --base-padding: 0.5rem;
+  --base-font-size: 1rem;
 }
 
 *,
 *::after,
 *::before {
-	padding: 0;
-	margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 body {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 ul {
-	list-style-type: none;
+  list-style-type: none;
 }
 
 header {
-	background-color: brown;
-	color: white;
+  background-color: brown;
+  color: white;
 }
 
 h1 {
-	text-transform: uppercase;
-	text-align: center;
+  text-transform: uppercase;
+  text-align: center;
 }
 
 .container {
-	margin: calc(var(--base-margin) * 2);
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+main {
+  margin: calc(var(--base-margin) * 2);
 }
 
 input {
-	font-size: calc(var(--base-font-size) * 2);
-	border: 1px solid black;
-	padding: var(--base-padding);
-	width: calc(100% - var(--base-margin) * 4);
-	margin: var(--base-margin);
+  font-size: calc(var(--base-font-size) * 2);
+  border: 1px solid black;
+  padding: var(--base-padding);
+  width: calc(100% - var(--base-margin) * 4);
+  margin: var(--base-margin);
+}
+
+input::first-letter {
+  text-transform: uppercase;
 }
 
 li {
-	display: grid;
-	grid-template-columns: 8fr repeat(3, 1fr);
-	gap: var(--base-margin);
-	align-items: center;
+  display: grid;
+  grid-template-columns: 8fr repeat(3, 1fr);
+  gap: var(--base-margin);
+  align-items: center;
 
-	margin: var(--base-margin);
-	border-bottom: 1px solid black;
+  margin: var(--base-margin);
+  border-bottom: 1px solid black;
 }
 
 li span,
 li button {
-	padding: var(--base-padding);
+  padding: var(--base-padding);
 }
 
 li span {
-	margin-right: var(--base-margin);
+  margin-right: var(--base-margin);
 }
 
 li button {
-	margin: var(--base-padding) 0;
-	width: 5rem;
-	border: none;
-	border-radius: 0.3rem;
-	cursor: pointer;
+  margin: var(--base-padding) 0;
+  width: 5rem;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
 }
 
 .btn-done {
-	background-color: #0ca;
+  background-color: #0ca;
 }
 
 .btn-redo {
-	background-color: yellow;
+  background-color: yellow;
 }
 
 .btn-edit {
-	background-color: darkorange;
+  background-color: darkorange;
 }
 
 .btn-delete {
-	background-color: darkred;
-	color: white;
+  background-color: darkred;
+  color: white;
 }
 
 .btn-disabled {
-	background-color: #aaa;
+  background-color: #aaa;
 }
 
 .task {
-	pointer-events: none;
-	cursor: pointer;
-	-webkit-touch-callout: none; /* iOS Safari */
-	-webkit-user-select: none; /* Safari */
-	-moz-user-select: none; /* Old versions of Firefox */
-	-ms-user-select: none; /* Internet Explorer/Edge */
-	user-select: none; /* Non-prefixed version, currently
+  pointer-events: none;
+  cursor: pointer;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
                         supported by Chrome, Edge, Opera and Firefox */
 }
 
 .task-finished {
-	color: #ccc;
-	text-decoration: line-through;
+  color: #ccc;
+  text-decoration: line-through;
 }

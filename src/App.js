@@ -1,12 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Task from './components/Task';
 import Header from './components/Header';
-import { isNumber } from 'lodash';
+import _ from 'lodash';
 
 function App() {
   const [newTask, setNewTask] = useState('');
   const [tasks, setTasks] = useState([]);
   const [editTaskId, setEditTaskId] = useState();
+  const url = 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=5';
+
+  // asnynchronous call. Yes, it's possible to use axios as well
+  const fetchData = async () => {
+    try {
+      let tasksArray = [];
+      await fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+          data.results.map((task, index) => {
+            // first letter uppercase
+            const taskName = task.name.charAt(0).toUpperCase() + task.name.slice(1);
+            tasksArray.push({ id: index, name: taskName });
+          });
+        });
+
+      console.log('Added tasks:' + tasks.length);
+      setTasks(_.isEmpty(...tasks) ? tasksArray : [...tasks, tasksArray]);
+    } catch (error) {
+      console.log('error', error);
+    }
+  };
+
+  useEffect(() => {
+    // Add additional example tasks from api after 5 seconds with
+    // fetch fetchData promise
+    setTimeout(fetchData, 5000);
+  }, []);
 
   const handleChange = (e) => {
     if (e.target.value.length === 1) {
@@ -17,11 +45,10 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (isNumber(editTaskId)) {
+    if (_.isNumber(editTaskId)) {
       //editing exisitng task
-      console.log('Editing task: ' + editTaskId);
+      console.log(tasks);
       let newTasksArray = [...tasks];
-      console.log(newTasksArray);
       let newTask = newTasksArray[editTaskId];
       newTask.name = newTask;
       setTasks(newTasksArray);
@@ -67,9 +94,9 @@ function App() {
   };
 
   return (
-    <>
+    <div className="container">
       <Header />
-      <div className="container">
+      <main>
         <form onSubmit={handleSubmit}>
           <label htmlFor="newTaskInput" className="sr-only">
             Input for new task
@@ -87,7 +114,6 @@ function App() {
           {React.useMemo(
             () =>
               tasks.map((task, index) => {
-                console.log('PING!');
                 return (
                   <Task
                     id={task.id}
@@ -101,8 +127,8 @@ function App() {
             [tasks]
           )}
         </ul>
-      </div>
-    </>
+      </main>
+    </div>
   );
 }
 
