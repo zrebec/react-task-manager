@@ -19,6 +19,10 @@
 - Každý tag je uzatvorený. V HTML nemusí byť. Sú nepárové elementy ako napr `<hr>` alebo `<br>`, toto však neplatí v reacte, kde to musí byť uvedené ako párový element a teda zapísané ako `<hr />` alebo `<br />`. A je to z toho dôvodu, že všetko je Javascript.
 - Komenty ktoré majú reagovať dynamicky majú stav. Používa sa na to `useState`, kde môže byť akýkoľvek objekt.
 
+## BUGS
+
+[] Done doen't work correctly. Probably it happens remote loading of pokemon names likes tasks
+
 ## TODO
 
 [] Change texts to svg icons
